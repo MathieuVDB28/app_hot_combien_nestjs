@@ -13,8 +13,8 @@ RUN npm install
 # Copiez le contenu du répertoire actuel dans le conteneur dans /app
 COPY . .
 
-# Rendez le port 3000 disponible pour le monde extérieur à ce conteneur
-EXPOSE 3000
+# Rendez le port 4000 disponible pour le monde extérieur à ce conteneur
+EXPOSE 4000
 
 # Exécutez npm start lorsque le conteneur démarre
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "dev"]

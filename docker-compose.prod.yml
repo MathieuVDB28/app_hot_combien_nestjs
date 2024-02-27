@@ -5,19 +5,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - ./src:/urs/src/app/src
     depends_on:
       - mysql_db
-
-  react_app:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "4000:4000"
-    stdin_open: true
-    tty: true
-    depends_on:
-      - nestjs_app
 
   mysql_db:
     image: mysql
