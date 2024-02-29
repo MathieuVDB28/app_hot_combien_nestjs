@@ -1,0 +1,21 @@
+services:
+  nestjs_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql_db
+
+  mysql_db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'hot_combien_app'
+      MYSQL_USER: 'hot_combien_user'
+      MYSQL_PASSWORD: 'passworduser'
+      MYSQL_ROOT_PASSWORD: 'passwrdroot'
+      MYSQL_TCP_PORT: '3306'
+    ports:
+      - "3306:3306"

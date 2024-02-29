@@ -30,3 +30,14 @@ services:
       MYSQL_TCP_PORT: '3306'
     ports:
       - "3306:3306"
+
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "3050:80"
